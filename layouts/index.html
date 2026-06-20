@@ -1,0 +1,235 @@
+{{ define "main" }}
+<div class="wrap">
+
+  <!-- hero -->
+  <section class="hero">
+    <div>
+      <div class="eyebrow" style="margin-bottom:22px;">{{ site.Params.org }}</div>
+      <h1>Data Science &amp; Bioinformatics for Mass&nbsp;Spectrometry of Small Molecules</h1>
+      <p class="lead" style="margin-bottom:30px;">We build efficient algorithms, tools and workflows to identify and quantify lipids and other small molecules — applied to human, microbial and plant lipidomics.</p>
+      <div style="display:flex; gap:14px;">
+        <a class="btn btn-gold" href="{{ "research/" | relURL }}">Explore our research</a>
+        <a class="btn btn-ghost" href="{{ "tools/" | relURL }}">Our tools</a>
+      </div>
+    </div>
+    <div>
+      <img class="emblem" src="{{ "img/emblem.png" | relURL }}" alt="DSBMS emblem">
+    </div>
+  </section>
+
+  <!-- research directions, each paired with its workflow infographic -->
+  <section style="padding:24px 0 6px;">
+    <div class="eyebrow eyebrow-teal" style="margin-bottom:10px;">Research</div>
+    <h2 class="h2" style="margin-bottom:8px;">Four directions, one pipeline</h2>
+    <p class="lead" style="margin-bottom:4px;">From raw names and spectra to comparable, shareable results — each direction backed by an open-source tool or standard.</p>
+  </section>
+
+  <!-- 01 · Harmonized naming → Goslin -->
+  {{ $a := index hugo.Data.research.areas 0 }}
+  <section style="padding:18px 0 4px;">
+    <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+      <span class="badge-num" style="font-size:15px;">{{ $a.num }}</span>
+      <h3 style="font-family:var(--display); font-weight:600; font-size:23px; color:var(--ink); margin:0; letter-spacing:-0.01em;">{{ $a.title }}</h3>
+    </div>
+    <p style="font-size:16px; line-height:1.6; color:var(--ink-3); margin:0 0 22px; max-width:820px;">{{ $a.body }}</p>
+    <div class="diagram-cap"><span class="t">Goslin</span><span class="d">Reading any lipid dialect into one canonical shorthand</span></div>
+    <div class="nom">
+      <div class="nom-io">
+        <div>
+          <div class="nom-col-label">Input — any nomenclature</div>
+          <div class="nom-in">
+            <span>GPCho(16:0/18:1(9Z))</span>
+            <span>PtdCho 16:0-18:1</span>
+            <span>PC(16:0/18:1(9Z))</span>
+            <span>phosphatidylcholine 34:1</span>
+          </div>
+        </div>
+        <div class="nom-arrow">
+          <div class="g">Goslin</div>
+          <div class="a">→</div>
+          <div style="font-family:var(--mono); font-size:11px; color:#a4b4b9;">normalize</div>
+        </div>
+        <div>
+          <div class="nom-col-label" style="color:var(--gold);">Canonical — LIPID MAPS shorthand</div>
+          <div class="nom-out">PC 16:0/18:1(9Z)</div>
+        </div>
+      </div>
+      <div class="nom-levels">
+        <div class="nom-level"><div class="lv">Species</div><div class="val">PC 34:1</div><div class="sub">sum composition</div></div>
+        <div class="nom-sep">→</div>
+        <div class="nom-level"><div class="lv">Molecular species</div><div class="val">PC 16:0_18:1</div><div class="sub">acyl chains known</div></div>
+        <div class="nom-sep">→</div>
+        <div class="nom-level"><div class="lv">sn-position</div><div class="val">PC 16:0/18:1</div><div class="sub">sn-1 / sn-2 assigned</div></div>
+        <div class="nom-sep">→</div>
+        <div class="nom-level"><div class="lv gold">Structure-defined</div><div class="val">PC 16:0/18:1(9Z)</div><div class="sub">double-bond position</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · Targeted & quantitative workflows → LipidCreator -->
+  {{ $a := index hugo.Data.research.areas 1 }}
+  <section style="padding:48px 0 4px; border-top:1px solid var(--line); margin-top:24px;">
+    <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+      <span class="badge-num" style="font-size:15px;">{{ $a.num }}</span>
+      <h3 style="font-family:var(--display); font-weight:600; font-size:23px; color:var(--ink); margin:0; letter-spacing:-0.01em;">{{ $a.title }}</h3>
+    </div>
+    <p style="font-size:16px; line-height:1.6; color:var(--ink-3); margin:0 0 22px; max-width:820px;">{{ $a.body }}</p>
+    <div class="diagram-cap"><span class="t teal">LipidCreator</span><span class="d">Designing targeted assays and in-silico spectral libraries</span></div>
+    <div class="nom">
+      <div class="nom-io">
+        <div>
+          <div class="nom-col-label">Input — lipid classes &amp; settings</div>
+          <div class="nom-chips">
+            <span class="nom-chip">PC</span><span class="nom-chip">PE</span><span class="nom-chip">TG</span><span class="nom-chip">SM</span><span class="nom-chip">Cer</span><span class="nom-chip">60+ classes</span>
+          </div>
+          <div class="nom-chips" style="margin-top:10px;">
+            <span class="nom-chip">precursor / fragment ions</span><span class="nom-chip">collision energy</span>
+          </div>
+        </div>
+        <div class="nom-arrow teal">
+          <div class="g">LipidCreator</div>
+          <div class="a">→</div>
+          <div style="font-family:var(--mono); font-size:11px; color:#a4b4b9;">compute</div>
+        </div>
+        <div>
+          <div class="nom-col-label" style="color:var(--teal);">Output — assay &amp; library</div>
+          <div class="nom-out teal">in-silico spectral library</div>
+          <div class="nom-chips" style="margin-top:10px;">
+            <span class="nom-chip teal">transition list</span><span class="nom-chip teal">→ Skyline</span>
+          </div>
+        </div>
+      </div>
+      <div class="nom-levels">
+        <div class="nom-level"><div class="lv">Select</div><div class="val">classes &amp; adducts</div><div class="sub">60+ lipid classes</div></div>
+        <div class="nom-sep">→</div>
+        <div class="nom-level"><div class="lv">Compute</div><div class="val">fragment masses</div><div class="sub">MS/MS in silico</div></div>
+        <div class="nom-sep">→</div>
+        <div class="nom-level"><div class="lv">Build</div><div class="val">spectral library</div><div class="sub">intensities &amp; transitions</div></div>
+        <div class="nom-sep">→</div>
+        <div class="nom-level"><div class="lv gold">Export</div><div class="val">Skyline assay</div><div class="sub">acquire &amp; quantify</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 · Comparison, ML & cloud analysis → LipidSpace -->
+  {{ $a := index hugo.Data.research.areas 2 }}
+  <section style="padding:48px 0 4px; border-top:1px solid var(--line); margin-top:24px;">
+    <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+      <span class="badge-num" style="font-size:15px;">{{ $a.num }}</span>
+      <h3 style="font-family:var(--display); font-weight:600; font-size:23px; color:var(--ink); margin:0; letter-spacing:-0.01em;">{{ $a.title }}</h3>
+    </div>
+    <p style="font-size:16px; line-height:1.6; color:var(--ink-3); margin:0 0 22px; max-width:820px;">{{ $a.body }}</p>
+    <div class="diagram-cap"><span class="t teal">LipidSpace</span><span class="d">Comparing whole lipidomes in a shared structural space</span></div>
+    <div class="nom">
+      <div class="nom-io">
+        <div>
+          <div class="nom-col-label">Input — lipidome datasets</div>
+          <table class="nom-table">
+            <thead>
+              <tr><th>Name</th><th>Study A</th><th>Study B</th><th>Study C</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>PC 34:1</td><td>0.42</td><td>0.38</td><td>0.51</td></tr>
+              <tr><td>PE 36:2</td><td>0.18</td><td>0.22</td><td>0.15</td></tr>
+              <tr><td>TG 52:3</td><td>0.27</td><td>0.31</td><td>0.24</td></tr>
+              <tr><td>SM 34:1</td><td>0.09</td><td>0.07</td><td>0.10</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="nom-arrow teal">
+          <div class="g">LipidSpace</div>
+          <div class="a">→</div>
+          <div style="font-family:var(--mono); font-size:11px; color:#a4b4b9;">embed</div>
+        </div>
+        <div>
+          <div class="nom-col-label" style="color:var(--teal);">Output — structural space</div>
+          <img class="nom-projection" src="{{ "img/lipidspace-three-lipidomes-projection.svg" | relURL }}" alt="LipidSpace projection of three lipidomes, points coloured by lipid category (SP, GL, GP, ST, FA)">
+        </div>
+      </div>
+      <div class="nom-levels">
+        <div class="nom-level"><div class="lv">Build</div><div class="val">structural space</div><div class="sub">from the lipids themselves</div></div>
+        <div class="nom-sep">→</div>
+        <div class="nom-level"><div class="lv">Compare</div><div class="val">lipidome distance</div><div class="sub">how similar are two studies</div></div>
+        <div class="nom-sep">→</div>
+        <div class="nom-level"><div class="lv gold">Select</div><div class="val">explanatory lipids</div><div class="sub">ML feature selection</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 · FAIR data & standards → mzTab-M + mzQC -->
+  {{ $a := index hugo.Data.research.areas 3 }}
+  <section style="padding:48px 0 72px; border-top:1px solid var(--line); margin-top:24px;">
+    <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+      <span class="badge-num" style="font-size:15px;">{{ $a.num }}</span>
+      <h3 style="font-family:var(--display); font-weight:600; font-size:23px; color:var(--ink); margin:0; letter-spacing:-0.01em;">{{ $a.title }}</h3>
+    </div>
+    <p style="font-size:16px; line-height:1.6; color:var(--ink-3); margin:0 0 22px; max-width:820px;">{{ $a.body }}</p>
+    <div class="diagram-cap"><span class="t teal">mzTab-M · mzQC</span><span class="d">Turning heterogeneous results into FAIR, AI-ready datasets</span></div>
+    <div class="nom">
+      <div class="nom-io">
+        <div>
+          <div class="nom-col-label">Input — heterogeneous results</div>
+          <div class="nom-chips">
+            <span class="nom-chip">vendor export</span><span class="nom-chip">custom .xlsx</span><span class="nom-chip">tool-specific table</span>
+          </div>
+        </div>
+        <div class="nom-arrow teal">
+          <div class="g">mzTab-M + mzQC</div>
+          <div class="a">→</div>
+          <div style="font-family:var(--mono); font-size:11px; color:#a4b4b9;">standardize</div>
+        </div>
+        <div>
+          <div class="nom-col-label" style="color:var(--teal);">Output — FAIR dataset</div>
+          <div class="nom-out teal">mzTab-M + mzQC</div>
+          <div class="nom-chips" style="margin-top:10px;">
+            <span class="nom-chip teal">findable</span><span class="nom-chip teal">interoperable</span><span class="nom-chip teal">AI-ready</span>
+          </div>
+        </div>
+      </div>
+      <div class="nom-levels">
+        <div class="nom-level"><div class="lv">Report</div><div class="val">quantitative results</div><div class="sub">mzTab-M structure</div></div>
+        <div class="nom-sep">→</div>
+        <div class="nom-level"><div class="lv">Assess</div><div class="val">quality metrics</div><div class="sub">mzQC</div></div>
+        <div class="nom-sep">→</div>
+        <div class="nom-level"><div class="lv gold">Share</div><div class="val">public repositories</div><div class="sub">reusable &amp; AI-ready</div></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- standards band -->
+<section class="band-ink">
+  <div class="wrap" style="padding:48px 0;">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;">
+      <div style="max-width:520px;">
+        <div class="eyebrow" style="margin-bottom:12px;">Standards &amp; interoperability</div>
+        <h2 class="h2" style="color:#fff; font-size:24px; margin-bottom:10px;">Making MS data FAIR</h2>
+        <p style="font-size:15px; line-height:1.55; color:#aecdd4; margin:0;">We help define community data standards through the HUPO Proteomics Standards Initiative — quality metrics, reporting and AI-readiness for small-molecule mass spectrometry.</p>
+      </div>
+      <div style="display:flex; gap:12px;">
+        <div style="background:#1b4b5a; border:1px solid #2d6678; border-radius:4px; padding:18px 22px; text-align:center;"><div style="font-family:var(--mono); font-weight:600; font-size:18px; color:#fff;">mzQC</div><div style="font-size:12px; color:#8fbac4; margin-top:4px;">quality metrics</div></div>
+        <div style="background:#1b4b5a; border:1px solid #2d6678; border-radius:4px; padding:18px 22px; text-align:center;"><div style="font-family:var(--mono); font-weight:600; font-size:18px; color:#fff;">mzTab-M</div><div style="font-size:12px; color:#8fbac4; margin-top:4px;">reporting</div></div>
+        <div style="background:#1b4b5a; border:1px solid #2d6678; border-radius:4px; padding:18px 22px; text-align:center;"><div style="font-family:var(--mono); font-weight:600; font-size:18px; color:#fff;">HUPO-PSI</div><div style="font-size:12px; color:#8fbac4; margin-top:4px;">AI &amp; formats</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- tools -->
+<div class="wrap">
+  <section style="padding:64px 0;">
+    <div class="eyebrow eyebrow-teal" style="margin-bottom:10px;">Tools · de.NBI “Lipidomics for Life Sciences”</div>
+    <h2 class="h2" style="margin-bottom:8px;">Open-source software we build</h2>
+    <p class="lead" style="margin-bottom:32px;">As part of the <a href="https://www.denbi.de" target="_blank" title="de.NBI Network Homepage">German Network for Bioinformatics Infrastructure (de.NBI) and ELIXIR Germany</a> - LIFS consortium — we contribute to a connected suite of lipidomics tools, from identification to structural comparison.</p>
+    <div class="grid-4">
+      {{ range hugo.Data.tools.categories }}{{ range .tools }}
+        <a class="card card-link card-hover" href="{{ "tools/" | relURL }}#tool-{{ .name | urlize }}" style="padding:20px;">
+          <div class="tool-ico" style="width:34px; height:34px; border-radius:6px; margin-bottom:14px;">{{ .abbr }}</div>
+          <div style="font-family:var(--display); font-weight:600; font-size:15px; color:var(--ink);">{{ .name }}</div>
+        </a>
+      {{ end }}{{ end }}
+    </div>
+  </section>
+</div>
+{{ end }}

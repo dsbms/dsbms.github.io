@@ -1,0 +1,38 @@
+# Standards — rendered by layouts/standards/list.html
+standards:
+  - name: "mzTab-M"
+    kind: "reporting format"
+    desc: >-
+      A single, well-specified tab-separated format for sharing quantitative
+      metabolomics and lipidomics results between tools and repositories.
+    points:
+      - "Metadata, summary and feature/evidence sections capture an experiment end-to-end."
+      - "Co-developed by the Proteomics and Metabolomics Standards Initiatives."
+      - "A direct import format for downstream tools such as LipidSpace."
+  - name: "mzQC"
+    kind: "quality control"
+    desc: >-
+      A format for capturing quality-control metrics for mass-spectrometry runs
+      and whole datasets, so quality can be tracked and compared.
+    points:
+      - "Standardized metrics make QC reproducible and machine-readable."
+      - "Supports both per-run and per-dataset reporting."
+      - "Developed within the HUPO-PSI quality-control working group."
+  - name: "Lipid shorthand"
+    kind: "nomenclature"
+    desc: >-
+      The community shorthand nomenclature for lipids, implemented as a formal
+      grammar in Goslin so names normalize to one canonical form.
+    points:
+      - "Hierarchical levels from sum-composition species to structure-defined."
+      - "Parsing of systematic IUPAC-IUB fatty-acyl names."
+      - "Consistent output across C++, Python, Java and R."
+  - name: "HUPO-PSI · AI"
+    kind: "interoperability"
+    desc: >-
+      Cross-cutting work to make MS data formats and vocabularies interoperable
+      and ready for machine-learning and AI applications.
+    points:
+      - "Controlled vocabularies give unambiguous meaning to data fields."
+      - "Extends established standards toward small molecules."
+      - "Aims at FAIR, AI-ready small-molecule mass spectrometry."

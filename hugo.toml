@@ -1,0 +1,43 @@
+# DSBMS — Hugo configuration
+# For GitHub Pages project site, set baseURL to https://dsbms.github.io/<repo>/
+baseURL = "https://dsbms.github.io/"
+locale = "en-us"
+title = "DSBMS — Data Science & Bioinformatics for MS of Small Molecules"
+enableEmoji = false
+
+# Render section _index pages from data; no taxonomy noise.
+disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
+
+[params]
+  org = "IBG-5 · Forschungszentrum Jülich"
+  github = "https://github.com/dsbms"
+  fzjibg5 = "https://www.fz-juelich.de/en/ibg/ibg-5"
+  fzjdsmbs = "https://www.fz-juelich.de/en/ibg/ibg-5/research/data-science-and-bioinformatics-for-mass-spectrometry-of-small-molecules"
+  contact = "https://www.fz-juelich.de/profile/hoffmann_n"
+  lifs = "https://lifs-tools.org"
+  tagline = "Efficient algorithms, tools and workflows for high-throughput mass spectrometry of small molecules."
+
+# Main navigation, in order. `weight` controls position.
+[[menu.main]]
+  name = "Research"
+  url = "/research/"
+  weight = 1
+[[menu.main]]
+  name = "Tools"
+  url = "/tools/"
+  weight = 2
+[[menu.main]]
+  name = "Standards"
+  url = "/standards/"
+  weight = 3
+[[menu.main]]
+  name = "Publications"
+  url = "/publications/"
+  weight = 4
+[[menu.main]]
+  name = "Team"
+  url = "/team/"
+  weight = 5
+
+[markup.goldmark.renderer]
+  unsafe = true

@@ -1,0 +1,109 @@
+{{ define "main" }}
+<div class="wrap">
+  <section style="padding:60px 0 22px;">
+    <div class="eyebrow" style="margin-bottom:18px;">Tools · de.NBI “Lipidomics for Life Sciences” (LIFS)</div>
+    <h1 class="h1" style="max-width:780px;">Open-source software for the lipidomics workflow</h1>
+    <p class="lead" style="margin-bottom:22px;">As part of the LIFS consortium we develop and contribute to a connected suite of tools — covering identification, standardization, comparison and data sharing. Everything is open source and built on shared standards.</p>
+    <div style="display:flex; gap:14px;">
+      <a class="btn btn-ink btn-sm" href="https://lifs-tools.org" target="_blank" rel="noopener">lifs-tools.org ↗</a>
+      <a class="btn btn-ghost btn-sm" href="https://github.com/lifs-tools" target="_blank" rel="noopener">github.com/lifs-tools ↗</a>
+    </div>
+  </section>
+
+  <!-- legend -->
+  <section style="padding:0 0 8px;">
+    <div class="legend">
+      <span style="font-family:var(--mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--faint);">Card key</span>
+      <span style="display:inline-flex; align-items:center; gap:7px;"><span class="sw" style="background:var(--teal);"></span>Web app</span>
+      <span style="display:inline-flex; align-items:center; gap:7px;"><span class="sw" style="background:#5b6b70;"></span>Desktop</span>
+      <span style="display:inline-flex; align-items:center; gap:7px;"><span class="sw" style="background:var(--gold);"></span>Library</span>
+      <span style="color:#cfdce0;">|</span>
+      <span>OS tags shown for desktop tools</span>
+      <span style="color:#cfdce0;">|</span>
+      <span style="display:inline-flex; align-items:center; gap:7px;"><span class="dash"></span>dashed = registry link to be added</span>
+    </div>
+  </section>
+
+  <section style="padding:8px 0;">
+    {{ range hugo.Data.tools.categories }}
+    <div style="padding:18px 0 8px;" id="tool-{{ .num }}">
+      <div class="section-head">
+        <span class="num">{{ .num }}</span>
+        <h2>{{ .name }}</h2>
+        <span class="rule"></span>
+      </div>
+      <div class="grid-2">
+        {{ range .tools }}
+        <div class="card tool-card" style="padding:24px 26px;" id="tool-{{ .name | urlize }}">
+          <div class="tool-ico">{{ .abbr }}</div>
+          <div class="tool-body">
+
+            <div class="tool-head">
+              <h3 style="margin:0;">{{ .name }}</h3>
+              {{ if .external }}<span class="ext-badge">external</span>{{ end }}
+            </div>
+
+            <div style="display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin-bottom:12px;">
+              {{ if .web }}<span class="pill pill-web">Web app</span>{{ end }}
+              {{ if .desktop }}<span class="pill pill-desktop">Desktop</span>{{ end }}
+              {{ if .library }}<span class="pill pill-library">Library</span>{{ end }}
+              {{ if .rest }}<span class="pill pill-rest">REST API</span>{{ end }}
+              {{ if and .desktop .os }}
+                <span class="divider-v"></span>
+                {{ range .os }}<span class="os-tag">{{ . }}</span>{{ end }}
+              {{ end }}
+            </div>
+
+            <p style="font-size:14px; margin-bottom:16px;">{{ .desc }}</p>
+
+            <div class="label-mono">Get</div>
+            <div class="chips" style="margin-bottom:14px;">
+              <a class="chip chip-primary" href="{{ .url }}" target="_blank" rel="noopener">{{ .link }} ↗</a>
+              {{ if .github }}<a class="chip chip-ghost" href="{{ .github }}" target="_blank" rel="noopener">★ GitHub ↗</a>
+              {{ else if not .external }}<span class="chip chip-muted">repo · private</span>{{ end }}
+              {{ if .docker }}<a class="chip chip-ghost" href="{{ .docker }}" target="_blank" rel="noopener">Docker ↗</a>
+              {{ else if .rest }}<span class="chip chip-todo">Docker image (REST)</span>{{ end }}
+            </div>
+
+            <div class="label-mono">Indexed in</div>
+            <div class="chips">
+              {{ if .biotools }}<a class="chip chip-link" href="{{ .biotools }}" target="_blank" rel="noopener">bio.tools ↗</a>
+              {{ else }}<span class="chip chip-todo">bio.tools</span>{{ end }}
+              {{ if .conda }}<a class="chip chip-link" href="{{ .conda }}" target="_blank" rel="noopener">Bioconda ↗</a>
+              {{ else }}<span class="chip chip-todo">Bioconda · BioContainers</span>{{ end }}
+              {{ if .bioconductor }}<a class="chip chip-link" href="{{ .bioconductor }}" target="_blank" rel="noopener">Bioconductor · rgoslin ↗</a>{{ end }}
+              {{ if .denbi }}<a class="chip chip-link" href="{{ .denbi }}" target="_blank" rel="noopener">de.NBI registry ↗</a>
+              {{ else }}<span class="chip chip-todo">de.NBI registry</span>{{ end }}
+            </div>
+
+            {{ if .pubs }}
+            <div style="margin-top:12px;">
+              <div class="label-mono">Publications</div>
+              <div class="chips">
+                {{ range .pubs }}
+                  {{ $slug := . }}
+                  {{ $p := site.GetPage (printf "/publications/%s" $slug) }}
+                  {{ $label := $slug | humanize }}
+                  {{ if $p }}{{ with $p.Params.chip }}{{ $label = . }}{{ end }}{{ end }}
+                  <a class="chip chip-link" href="{{ "publications/" | relURL }}#{{ $slug }}" style="text-decoration:none;">{{ $label }} →</a>
+                {{ end }}
+              </div>
+            </div>
+            {{ end }}
+
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </section>
+
+  <section style="padding:28px 0 72px;">
+    <a class="card card-link" href="{{ "research/" | relURL }}" style="padding:28px 30px;">
+      <div class="eyebrow" style="font-size:11px; margin-bottom:8px;">Research</div>
+      <div style="font-family:var(--display); font-weight:600; font-size:19px; color:var(--ink);">See how these tools fit your research →</div>
+    </a>
+  </section>
+</div>
+{{ end }}

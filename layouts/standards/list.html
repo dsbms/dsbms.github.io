@@ -1,0 +1,46 @@
+{{ define "main" }}
+<div class="wrap">
+  <section style="padding:60px 0 40px;">
+    <div class="eyebrow" style="margin-bottom:18px;">Standards &amp; interoperability</div>
+    <h1 class="h1" style="max-width:800px;">Making mass-spectrometry data FAIR and AI-ready</h1>
+    <p class="lead">Data that cannot be exchanged cannot be reused. We contribute to the community standards that give small-molecule mass spectrometry a shared language — for reporting results, naming lipids, and measuring data quality — primarily through the HUPO Proteomics Standards Initiative (HUPO-PSI).</p>
+  </section>
+
+  <section style="padding:8px 0 24px;">
+    <div class="grid-2">
+      {{ range hugo.Data.standards.standards }}
+      <div class="card" style="padding:28px 30px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+          <span style="font-family:var(--mono); font-weight:600; font-size:18px; color:var(--ink);">{{ .name }}</span>
+          <span class="tag-teal">{{ .kind }}</span>
+        </div>
+        <p style="font-size:15px; line-height:1.58; margin-bottom:16px;">{{ .desc }}</p>
+        <div class="dotlist" style="gap:9px;">
+          {{ range .points }}<div class="dotrow" style="font-size:14px;"><span class="dot dot-gold"></span><span>{{ . }}</span></div>{{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+</div>
+
+<section class="band-ink" style="margin-top:32px;">
+  <div class="wrap" style="padding:52px 0; display:flex; align-items:center; justify-content:space-between; gap:48px; flex-wrap:wrap;">
+    <div style="max-width:560px;">
+      <div class="eyebrow" style="margin-bottom:12px;">HUPO Proteomics Standards Initiative</div>
+      <h2 class="h2" style="color:#fff; font-size:26px; margin-bottom:12px;">An open community, twenty years on</h2>
+      <p style="font-size:15.5px; line-height:1.6; color:#aecdd4; margin:0;">PSI maintains the data formats and controlled vocabularies the field depends on. We contribute to extending this work toward small molecules, quality control, and AI-readiness.</p>
+    </div>
+    <a class="btn btn-gold" href="https://www.psidev.info" target="_blank" rel="noopener">psidev.info ↗</a>
+  </div>
+</section>
+
+<div class="wrap">
+  <section style="padding:48px 0 72px;">
+    <a class="card card-link" href="{{ "publications/" | relURL }}" style="padding:28px 30px;">
+      <div class="eyebrow" style="font-size:11px; margin-bottom:8px;">Publications</div>
+      <div style="font-family:var(--display); font-weight:600; font-size:19px; color:var(--ink);">Read the papers behind these standards →</div>
+    </a>
+  </section>
+</div>
+{{ end }}

@@ -1,0 +1,65 @@
+{{ define "main" }}
+<div class="wrap">
+  <section style="padding:60px 0 44px;">
+    <div class="eyebrow" style="margin-bottom:18px;">Research</div>
+    <h1 class="h1" style="max-width:820px;">From raw spectra to confident, comparable molecules</h1>
+    <p class="lead">We develop efficient algorithms, tools and workflows for high-throughput mass spectrometry of small molecules. Our strength is fast, exact identification; we apply it to real questions in human, microbial and plant lipidomics, and increasingly complement it with machine learning and cloud-native analysis.</p>
+  </section>
+
+  <section style="padding:8px 0 24px;">
+    {{ range hugo.Data.research.areas }}
+    <div class="area-row">
+      <div>
+        <div class="badge-num" style="font-size:15px; margin-bottom:12px;">{{ .num }}</div>
+        <h2>{{ .title }}</h2>
+        <div class="chips">{{ range .tags }}<span class="tag-teal">{{ . }}</span>{{ end }}</div>
+      </div>
+      <div>
+        <p class="area-body">{{ .body }}</p>
+        <div class="dotlist">
+          {{ range .points }}<div class="dotrow"><span class="dot dot-gold"></span><span>{{ . }}</span></div>{{ end }}
+        </div>
+        {{ if .toolNums }}
+        <div style="margin-top:20px;">
+          <div style="font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint-2); margin-bottom:8px;">Relevant tools</div>
+          <div class="chips">
+            {{ $toolCategories := hugo.Data.tools.categories }}
+            {{ range .toolNums }}
+              {{ $catNum := . }}
+              {{ range $toolCategories }}
+                {{ if eq (printf "%v" .num) (printf "%v" $catNum) }}
+                  <a class="chip chip-link" href="{{ "tools/" | relURL }}#tool-{{ .num }}" style="text-decoration:none;">{{ .name }} →</a>
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </section>
+</div>
+
+<section class="band-ink" style="margin-top:32px;">
+  <div class="wrap" style="padding:56px 0;">
+    <div class="eyebrow" style="margin-bottom:14px;">Where we apply it</div>
+    <h2 class="h2" style="color:#fff; font-size:28px; margin-bottom:32px;">One toolset, many lipidomes</h2>
+    <div class="grid-3">
+      {{ range hugo.Data.research.applications }}
+        <div class="band-card"><h3>{{ .title }}</h3><p>{{ .body }}</p></div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section style="padding:48px 0 72px;">
+    <div class="grid-3">
+      <a class="card card-link" href="{{ "tools/" | relURL }}"><div class="eyebrow" style="font-size:11px; margin-bottom:10px;">Tools</div><div style="font-family:var(--display); font-weight:600; font-size:17px; color:var(--ink);">The software we build →</div></a>
+      <a class="card card-link" href="{{ "standards/" | relURL }}"><div class="eyebrow" style="font-size:11px; margin-bottom:10px;">Standards</div><div style="font-family:var(--display); font-weight:600; font-size:17px; color:var(--ink);">Making MS data FAIR →</div></a>
+      <a class="card card-link" href="{{ "publications/" | relURL }}"><div class="eyebrow" style="font-size:11px; margin-bottom:10px;">Publications</div><div style="font-family:var(--display); font-weight:600; font-size:17px; color:var(--ink);">Ideas &amp; findings →</div></a>
+    </div>
+  </section>
+</div>
+{{ end }}

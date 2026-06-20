@@ -1,0 +1,59 @@
+# Research directions — rendered by layouts/research/list.html
+areas:
+  - num: "01"
+    title: "Harmonized naming and representation of ambiguity"
+    tags: ["Algorithms", "Nomenclature", "Annotation"]
+    body: >-
+      Fast, exact algorithms for annotating small molecules are the core of our
+      work. We treat lipid names and structures as formal objects that software
+      can parse, normalize and compare — so identifications are consistent
+      across labs, tools and databases.
+    points:
+      - "Grammar-based parsing and normalization of lipid shorthand nomenclature (Goslin)."
+      - "Resolving isobaric and structurally similar compounds that confound naïve matching."
+      - "Shared libraries (C++, Python, Java, R) so every tool identifies the same way."
+    toolNums: ["01"]
+  - num: "02"
+    title: "Targeted & quantitative workflows"
+    tags: ["Targeted MS", "Quantification", "Assay design"]
+    body: >-
+      Alongside untargeted discovery, we build reliable targeted and
+      quantitative methods — the assays and spectral libraries needed to
+      measure defined panels of lipids reproducibly.
+    points:
+      - "Designing transition lists and in-silico spectral libraries (LipidCreator)."
+      - "Stable-isotope labelling and collision-energy optimization for robust quantification."
+      - "Integration with established pipelines such as Skyline."
+    toolNums: ["02"]
+  - num: "03"
+    title: "Comparison, ML & cloud analysis"
+    tags: ["Lipidome comparison", "Machine learning", "Cloud-native"]
+    body: >-
+      We turn results into interpretable comparisons between whole lipidomes,
+      and are beginning to complement our exact algorithms with machine
+      learning, delivered through reproducible, cloud-native workflows.
+    points:
+      - "Structural-space models that quantify how similar two lipidomes are (LipidSpace)."
+      - "Feature selection to find the lipids that explain a study variable."
+      - "Containerized pipelines and browser-based dashboards for analysis at scale."
+    toolNums: ["03"]
+  - num: "04"
+    title: "FAIR data & standards"
+    tags: ["mzTab-M", "mzQC", "HUPO-PSI"]
+    body: >-
+      Methods only matter if their results can be shared and reused. We help
+      define the community data standards that make small-molecule mass
+      spectrometry interoperable and AI-ready.
+    points:
+      - "Co-developing reporting formats for quantitative results (mzTab-M)."
+      - "Quality-control metrics for MS runs and datasets (mzQC)."
+      - "Contributing to HUPO-PSI work on AI-readiness and exchange formats."
+    toolNums: ["04"]
+
+applications:
+  - title: "Human health"
+    body: "Plasma and tissue lipidomics to study disease mechanisms, biomarkers and lipid signalling."
+  - title: "Microbial"
+    body: "Characterising microbial lipidomes and their roles in metabolism and adaptation."
+  - title: "Plant"
+    body: "Plant lipidomics to connect lipid composition with physiology and environmental response."

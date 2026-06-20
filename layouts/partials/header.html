@@ -1,0 +1,17 @@
+{{- /* Top navigation. Active state via section match. */ -}}
+<div class="wrap">
+  <nav class="topnav">
+    <a class="brand" href="{{ "/" | relURL }}">
+      <img src="{{ "img/emblem.png" | relURL }}" alt="DSBMS emblem">
+      <span>DSBMS</span>
+    </a>
+    <div class="navlinks">
+      {{- $cur := .RelPermalink -}}
+      {{ range site.Menus.main }}
+        {{- $active := or (eq $cur .URL) (and (ne .URL "/") (hasPrefix $cur .URL)) -}}
+        <a href="{{ .URL | relURL }}"{{ if $active }} class="active"{{ end }}>{{ .Name }}</a>
+      {{ end }}
+      <a class="nav-gh" href="{{ site.Params.github }}" target="_blank" rel="noopener">↗ GitHub</a>
+    </div>
+  </nav>
+</div>

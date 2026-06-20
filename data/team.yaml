@@ -1,0 +1,38 @@
+# Team — rendered by layouts/team/list.html
+lead:
+  name: "Dr. Nils Hoffmann"
+  role: "Group Leader"
+  affiliations:
+    - "IBG-5, Forschungszentrum Jülich, Germany"
+    - "Institute for Analytical Chemistry, University of Vienna, Austria"
+  bio: >-
+    Leads the DSBMS group, developing efficient algorithms and community data
+    standards for mass spectrometry of small molecules. Lead/contributing author
+    on Goslin, mzTab-M, LipidCreator and LipidSpace, and active in the HUPO-PSI.
+  orcid: "https://orcid.org/0000-0002-6540-6875"
+  github: "https://github.com/DSBMS"
+  linkedin: "https://www.linkedin.com/in/nils-hoffmann-21218129/"
+
+# Add real names, focus lines and LinkedIn URLs below.
+members:
+  - name: "Dr. Sanjay Kumar Srikakulam"
+    role: "Postdoctoral researcher"
+    affiliations: 
+      - "IBG-5, Forschungszentrum Jülich, Germany"
+    focus: "ML and LLM-based data summarization and extraction, protein sequence comparison"
+    linkedin: "https://www.linkedin.com/in/sanjay-kumar-srikakulam/"
+  - name: "Franziska Nicolaus, M.Sc."
+    role: "PhD student"
+    affiliations:
+      - "IBG-5, Forschungszentrum Jülich, Germany"
+      - "Faculty of Technology, Bielefeld University, Germany"
+    focus: "Scalable, targeted lipidomics workflows, data standards for qc and small molecules, ML"
+    linkedin: "https://www.linkedin.com/in/franziska-nicolaus-949398206/"
+
+former:
+  - name: "Janik Kokot, M.Sc."
+    role: "COST Action EpiLipidNET STSM Grant"
+    affiliations: 
+      - "University of Innsbruck, Austria"
+    period: "2024"
+    linkedin: "https://www.linkedin.com/in/janik-kokot-a70837283/"

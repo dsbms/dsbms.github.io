@@ -1,0 +1,165 @@
+# Tools — rendered by layouts/tools/list.html
+# Per tool:
+#   delivery:  web / desktop / library / rest  (booleans, any combination)
+#   os:        OS tags shown for desktop tools — Win / macOS / Linux
+#   github / docker / biotools / conda / bioconductor / denbi:
+#              paste a URL to turn the dashed placeholder into a live link;
+#              "" = not yet listed.  external: true marks a third-party tool.
+categories:
+  - num: "01"
+    name: "Standardization & harmonization"
+    tools:
+      - abbr: "Go"
+        name: "Goslin"
+        web: true
+        library: true
+        desc: >-
+          Parses the many lipid nomenclatures and the LIPID MAPS shorthand into an
+          internal data model, then serializes it back to standardized LIPID MAPS
+          shorthand. Libraries in C++, Python, Java and R.
+        url: "https://lifs-tools.org/tools/goslin.html"
+        link: "lifs-tools.org/goslin"
+        github: "https://github.com/lifs-tools/goslin"
+        biotools: ""
+        conda: ""
+        bioconductor: "https://bioconductor.org/packages/rgoslin"
+        denbi: ""
+        pubs: ["goslin", "goslin2"]
+
+  - num: "02"
+    name: "Identification & Quantification"
+    tools:
+      - abbr: "Lx"
+        name: "LipidXplorer"
+        desktop: true
+        os: ["Win", "Linux"]
+        desc: "Identifies lipids from shotgun (direct-infusion) high-resolution MS data via user-defined queries."
+        url: "https://lifs-tools.org"
+        link: "lifs-tools.org"
+        github: ""
+        biotools: ""
+        conda: ""
+        denbi: ""
+      - abbr: "Lp"
+        name: "lxPostman"
+        web: true
+        desc: "An R Shiny application to post-process, quality-control and quantify LipidXplorer output."
+        url: "https://lifs-tools.org"
+        link: "lifs-tools.org"
+        github: ""
+        biotools: ""
+        conda: ""
+        denbi: ""
+      - abbr: "Lc"
+        name: "LipidCreator"
+        desktop: true
+        os: ["Win", "Linux"]
+        desc: >-
+          Builds targeted MS assays and in-silico spectral libraries across 60+ lipid
+          classes, then exports them to Skyline for acquisition and identification.
+        url: "https://lifs-tools.org/tools/lipidcreator.html"
+        link: "lifs-tools.org/lipidcreator"
+        github: "https://github.com/lifs-tools/lipidcreator"
+        biotools: ""
+        conda: ""
+        denbi: ""
+        pubs: ["lipidcreator"]
+      - abbr: "Sk"
+        name: "Skyline"
+        external: true
+        desktop: true
+        os: ["Win"]
+        desc: >-
+          Open-source environment for building and analysing targeted MS methods;
+          LipidCreator runs as a Skyline external tool. Developed by the MacCoss Lab.
+        url: "https://skyline.ms"
+        link: "skyline.ms"
+        github: ""
+        biotools: ""
+        conda: ""
+        denbi: ""
+
+  - num: "03"
+    name: "Comparison & analysis"
+    tools:
+      - abbr: "Ls"
+        name: "LipidSpace"
+        desktop: true
+        os: ["Win", "macOS", "Linux"]
+        rest: true
+        docker: ""
+        desc: >-
+          Compares whole lipidomes through a structural-space model, with machine-learning
+          feature selection, QC and an interactive GUI. Also available as a REST Docker container.
+        url: "https://lifs-tools.org/tools/lipidspace.html"
+        link: "lifs-tools.org/lipidspace"
+        github: "https://github.com/lifs-tools/lipidspace"
+        biotools: ""
+        conda: ""
+        denbi: ""
+        pubs: ["lipidspace"]
+      - abbr: "Mg"
+        name: "MapToGo"
+        web: true
+        desc: >-
+          Performs transcript, protein, metabolite and lipid overexpression / enrichment
+          analysis onto GO terms, using an internal knowledge graph synthesized from public
+          pathway and reaction databases — and honours the hierarchical structure of lipid
+          shorthand names.
+        url: "https://lifs-tools.org"
+        link: "lifs-tools.org"
+        github: ""
+        biotools: ""
+        conda: ""
+        denbi: ""
+
+  - num: "04"
+    name: "Databases & data sharing"
+    tools:
+      - abbr: "Lc"
+        name: "LipidCompass"
+        web: true
+        desc: "A database for collecting, querying and sharing curated quantitative lipidomics datasets."
+        url: "https://lifs-tools.org"
+        link: "lifs-tools.org"
+        github: ""
+        biotools: ""
+        conda: ""
+        denbi: ""
+      - abbr: "mz"
+        name: "mzQC"
+        library: true
+        desc: "A standard for reporting and exchanging quality control metrics for mass spectrometry runs and datasets."
+        url: "https://lifs-tools.org"
+        link: "lifs-tools.org"
+        github: "https://github.com/HUPO-PSI/mzQC"
+        biotools: ""
+        conda: ""
+        denbi: ""
+        pubs: ["mzqc-libraries", "psi-20"]
+      - abbr: "mT"
+        name: "mzTab-M"
+        library: true
+        desc: "A standard format for reporting quantitative mass spectrometry metabolomics results in a tab-separated values file."
+        url: "https://lifs-tools.org"
+        link: "lifs-tools.org"
+        github: "https://github.com/HUPO-PSI/mzTab"
+        biotools: ""
+        conda: ""
+        denbi: ""
+        pubs: ["mztab-m", "psi-20"]
+      - abbr: "EP"
+        name: "EPoS-MoL"
+        web: true
+        library: true
+        desc: >-
+          A lipidomics scoring system that rates the quality and confidence of lipid
+          identifications, awarding points across MS, MS/MS, chromatography and
+          ion-mobility evidence. Available as an R package and an interactive Shiny web app.
+        url: "https://apps.lifs-tools.org/p/app/eposmol"
+        link: "apps.lifs-tools.org/eposmol"
+        github: "https://github.com/lifs-tools/empirical-lipid-ms-score"
+        biotools: ""
+        conda: ""
+        denbi: ""
+        pubs: ["eposmol"]

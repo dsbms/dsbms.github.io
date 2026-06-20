@@ -1,0 +1,33 @@
+{{ define "main" }}
+<div class="detail">
+  <a class="back" href="{{ "publications/" | relURL }}">← All publications</a>
+
+  <div class="eyebrow" style="font-size:11.5px; letter-spacing:0.1em; margin-bottom:16px;">{{ .Params.tag }}</div>
+  <h1>{{ .Title }}</h1>
+  <div class="authors">{{ .Params.authors }}</div>
+
+  <div class="meta-row">
+    <span class="meta-chip">{{ .Params.venue }} · {{ .Params.year }}</span>
+    {{ with .Params.doi }}<a class="meta-chip link" href="https://doi.org/{{ . }}" target="_blank" rel="noopener">doi: {{ . }} ↗</a>{{ end }}
+    {{ with .Params.toolurl }}<a class="meta-chip link" href="{{ . }}" target="_blank" rel="noopener">{{ $.Params.toollabel }} ↗</a>{{ end }}
+  </div>
+
+  <div class="list-head" style="color:var(--faint);">The idea</div>
+  <p class="lead-q">{{ .Params.lead }}</p>
+
+  <div class="two-col">
+    <div>
+      <div class="list-head teal">Key concepts</div>
+      <div class="dotlist">
+        {{ range .Params.concepts }}<div class="dotrow"><span class="dot dot-teal"></span><span>{{ . }}</span></div>{{ end }}
+      </div>
+    </div>
+    <div>
+      <div class="list-head gold">What we found</div>
+      <div class="dotlist">
+        {{ range .Params.findings }}<div class="dotrow"><span class="dot dot-gold"></span><span>{{ . }}</span></div>{{ end }}
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

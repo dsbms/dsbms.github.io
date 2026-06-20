@@ -1,0 +1,44 @@
+{{ define "main" }}
+<div class="wrap">
+  <section style="padding:60px 0 40px;">
+    <div class="eyebrow" style="margin-bottom:18px;">Publications</div>
+    <h1 class="h1" style="max-width:760px;">The ideas, concepts and findings behind our tools and standards</h1>
+    <p class="lead">A selection of our peer-reviewed work in lipidomics informatics — from grammar-based name normalization to community data standards. Open one for a short, plain-language summary.</p>
+  </section>
+
+  <section style="padding:0 0 24px;">
+    {{ $pubs := where site.RegularPages "Section" "publications" }}
+    {{ $sorted := sort $pubs "Params.areanum" "asc" }}
+    {{ $prev := "" }}
+    {{ range $sorted }}
+      {{ $areanum := .Params.areanum }}
+      {{ if ne ($prev | string) ($areanum | string) }}
+        {{ if ne $prev "" }}</div></div>{{ end }}
+        {{ $isStd := eq (int $areanum) 4 }}
+        <div style="padding:14px 0 16px;">
+          <div class="section-head">
+            <span class="num">{{ printf "%02d" (int $areanum) }}</span>
+            <h2>{{ .Params.area }}</h2>
+            <span class="rule"></span>
+          </div>
+          <div class="grid-2">
+        {{ $prev = ($areanum | string) }}
+      {{ end }}
+      {{ $isStd := eq (int $areanum) 4 }}
+      <a class="card card-link card-hover" href="{{ .RelPermalink }}" style="padding:26px 28px;" id="{{ .File.BaseFileName | strings.TrimSuffix ".md" }}">
+        <div style="flex: 1;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+            <span class="{{ if $isStd }}tag-gold{{ else }}tag-teal{{ end }}">{{ .Params.tag }}</span>
+            <span style="font-family:var(--mono); font-size:12px; color:var(--faint);">{{ .Params.year }}</span>
+          </div>
+          <h3 style="font-size:20px; margin-bottom:8px;">{{ .Title }}</h3>
+          <div style="font-size:13px; color:var(--faint); font-style:italic; margin-bottom:12px;">{{ .Params.venue }}</div>
+          <p style="margin-bottom:16px;">{{ .Params.idea }}</p>
+        </div>
+        <span style="font-family:var(--mono); font-size:12.5px; color:var(--gold); font-weight:500;">Read summary →</span>
+      </a>
+    {{ end }}
+    {{ if ne $prev "" }}</div></div>{{ end }}
+  </section>
+</div>
+{{ end }}
