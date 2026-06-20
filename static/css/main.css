@@ -116,6 +116,7 @@ h2.h2 { font-family:var(--display); font-weight:600; font-size:30px; color:var(-
 .foot-id { display:flex; align-items:center; gap:14px; font-size:13px; color:var(--muted); }
 .foot-id img { width:34px; height:34px; border-radius:50%; object-fit:cover; }
 .foot-links { display:flex; gap:24px; font-family:var(--mono); font-size:12.5px; color:var(--teal); }
+.foot-license img { height:34px; }
 
 /* ---- nomenclature panel (landing) ---- */
 .nom { border:1px solid var(--line-2); border-radius:6px; overflow:hidden; }
