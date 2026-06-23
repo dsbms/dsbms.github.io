@@ -34,9 +34,9 @@ categories:
         desktop: true
         os: ["Win", "Linux"]
         desc: "Identifies lipids from shotgun (direct-infusion) high-resolution MS data via user-defined queries."
-        url: "https://lifs-tools.org"
-        link: "lifs-tools.org"
-        github: ""
+        url: "https://lifs-tools.org/tools/lipidxplorer"
+        link: "lifs-tools.org/lipidxplorer"
+        github: "https://github.com/lifs-tools/lipidxplorer"
         biotools: ""
         conda: ""
         denbi: ""
@@ -44,8 +44,8 @@ categories:
         name: "lxPostman"
         web: true
         desc: "An R Shiny application to post-process, quality-control and quantify LipidXplorer output."
-        url: "https://lifs-tools.org"
-        link: "lifs-tools.org"
+        url: "https://lifs-tools.org/tools/lxpostman.html"
+        link: "lifs-tools.org/lxpostman"
         github: ""
         biotools: ""
         conda: ""
@@ -106,9 +106,9 @@ categories:
           analysis onto GO terms, using an internal knowledge graph synthesized from public
           pathway and reaction databases — and honours the hierarchical structure of lipid
           shorthand names.
-        url: "https://lifs-tools.org"
-        link: "lifs-tools.org"
-        github: ""
+        url: "https://lifs-tools.org/tools/map-to-go"
+        link: "lifs-tools.org/maptogo"
+        github: "https://github.com/lifs-tools/maptogo"
         biotools: ""
         conda: ""
         denbi: ""
@@ -120,8 +120,8 @@ categories:
         name: "LipidCompass"
         web: true
         desc: "A database for collecting, querying and sharing curated quantitative lipidomics datasets."
-        url: "https://lifs-tools.org"
-        link: "lifs-tools.org"
+        url: "https://lifs-tools.org/tools/lipidcompass"
+        link: "lifs-tools.org/lipidcompass"
         github: ""
         biotools: ""
         conda: ""
@@ -130,8 +130,8 @@ categories:
         name: "mzQC"
         library: true
         desc: "A standard for reporting and exchanging quality control metrics for mass spectrometry runs and datasets."
-        url: "https://lifs-tools.org"
-        link: "lifs-tools.org"
+        url: "https://hupo-psi.github.io/mzQC"
+        link: "hupo-psi.github.io/mzQC"
         github: "https://github.com/HUPO-PSI/mzQC"
         biotools: ""
         conda: ""
@@ -141,9 +141,9 @@ categories:
         name: "mzTab-M"
         library: true
         desc: "A standard format for reporting quantitative mass spectrometry metabolomics results in a tab-separated values file."
-        url: "https://lifs-tools.org"
-        link: "lifs-tools.org"
-        github: "https://github.com/HUPO-PSI/mzTab"
+        url: "https://hupo-psi.github.io/mzTab-M"
+        link: "hupo-psi.github.io/mzTab-M"
+        github: "https://github.com/HUPO-PSI/mzTab-M"
         biotools: ""
         conda: ""
         denbi: ""
